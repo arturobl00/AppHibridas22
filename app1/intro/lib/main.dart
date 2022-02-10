@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.purple,
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       //home: const Ejemplo(),
       //home: const Ejemplo2(),
       home: const HomeScreen(),
+      //home: const Ejemplo3(),
     );
   }
 }
@@ -102,6 +104,22 @@ class Ejemplo2 extends StatelessWidget {
             Text("Hola Mi Segundo Widget"),
           ],
         )),
+      ),
+    );
+  }
+}
+
+class Ejemplo3 extends StatelessWidget {
+  const Ejemplo3({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Rebuild only when necessary'),
+      ),
+      body: const Center(
+        child: Text("Hola"),
       ),
     );
   }
