@@ -1,4 +1,7 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:layouts/screen/page2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,12 +32,22 @@ class Interface extends StatelessWidget {
       Image.asset(
         'images/paisaje.jpg',
         width: 600,
-        height: 240,
+        height: 140,
         fit: BoxFit.cover,
       ),
       const TitleSection(),
+      buttonSection,
       textSection,
-      buttonSection
+      RaisedButton(
+        child: const Text('Open route'),
+        onPressed: () {
+          // Navega a la segunda ruta cuando se pulsa.
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Page2()),
+          );
+        },
+      )
     ]));
   }
 }
@@ -44,7 +57,7 @@ class TitleSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.all(28.0),
       child: Row(
         children: [
           Expanded(
@@ -104,7 +117,8 @@ Widget buttonSection = Container(
 );
 
 Widget textSection = Container(
-  padding: const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 32.0),
+  padding:
+      const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 20.0, top: 20.0),
   child: const Text(
     'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese'
     'Alps. Situated 1,578 meters above sea level, it is one of the'
@@ -115,3 +129,19 @@ Widget textSection = Container(
     softWrap: true,
   ),
 );
+
+class SecondRoute extends StatelessWidget {
+  const SecondRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {},
+          child: const Text("Go Back"),
+        ),
+      ),
+    );
+  }
+}
