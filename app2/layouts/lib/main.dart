@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:layouts/screen/page2.dart';
+import 'package:layouts/screen/animacion.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,21 +32,24 @@ class Interface extends StatelessWidget {
       Image.asset(
         'images/paisaje.jpg',
         width: 600,
-        height: 140,
+        height: 640,
         fit: BoxFit.cover,
       ),
       const TitleSection(),
       buttonSection,
       textSection,
-      RaisedButton(
-        child: const Text('Open route'),
-        onPressed: () {
-          // Navega a la segunda ruta cuando se pulsa.
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Page2()),
-          );
-        },
+      Container(
+        padding: const EdgeInsets.only(left: 100.0, right: 100.0),
+        child: RaisedButton(
+          child: const Text('Open route'),
+          onPressed: () {
+            // Navega a la segunda ruta cuando se pulsa.
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Page2()),
+            );
+          },
+        ),
       )
     ]));
   }
@@ -69,11 +72,25 @@ class TitleSection extends StatelessWidget {
                   child: const Text("Oeschinen Lake Campground",
                       style: TextStyle(fontWeight: FontWeight.bold))),
               Text("Kandersteg, Switzerland",
+                  style: TextStyle(color: Colors.grey[500])),
+              Text("Josshiuaa, Bojwiiiw",
                   style: TextStyle(color: Colors.grey[500]))
             ],
           )),
           Icon(
             Icons.star,
+            color: Colors.red[500],
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.red[500],
+          ),
+          Icon(
+            Icons.star_half_outlined,
+            color: Colors.red[500],
+          ),
+          Icon(
+            Icons.star_outline,
             color: Colors.red[500],
           ),
           const Text("41"),
@@ -119,14 +136,27 @@ Widget buttonSection = Container(
 Widget textSection = Container(
   padding:
       const EdgeInsets.only(left: 32.0, right: 32.0, bottom: 20.0, top: 20.0),
-  child: const Text(
-    'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese'
-    'Alps. Situated 1,578 meters above sea level, it is one of the'
-    'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
-    'half-hour walk through pastures and pine forest, leads you to the '
-    'lake, which warms to 20 degrees Celsius in the summer. Activities '
-    'enjoyed here include rowing, and riding the summer toboggan run.',
-    softWrap: true,
+  child: Column(
+    children: [
+      const Text(
+        'Lake Oeschinen lies at the foot of the Blüemlisalp in the Bernese'
+        'Alps. Situated 1,578 meters above sea level, it is one of the'
+        'larger Alpine Lakes. A gondola ride from Kandersteg, followed by a '
+        'half-hour walk through pastures and pine forest, leads you to the '
+        'lake, which warms to 20 degrees Celsius in the summer. Activities '
+        'enjoyed here include rowing, and riding the summer toboggan run.',
+        softWrap: true,
+      ),
+      Container(
+        padding: const EdgeInsets.all(20.0),
+        child: Image.asset(
+          'images/flores2.jpg',
+          width: 600,
+          height: 240,
+          fit: BoxFit.cover,
+        ),
+      ),
+    ],
   ),
 );
 

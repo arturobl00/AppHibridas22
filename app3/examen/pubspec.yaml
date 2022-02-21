@@ -1,4 +1,4 @@
-name: layouts
+name: examen
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -59,8 +59,12 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - images/paisaje.jpg
-    - images/flores2.jpg
+    - images/au1.jpg
+    - images/au2.jpg
+    - images/au3.jpg
+    - images/au4.jpg
+    - images/au5.jpg
+    - images/au6.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
