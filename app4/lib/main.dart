@@ -29,29 +29,67 @@ class Lista extends StatefulWidget {
 }
 
 class _ListaState extends State<Lista> {
-  List<String> itemsList = ["Page 1", "Page 2", "Page3", "Page4", "Page5"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Proyecto Interface"),
-        ),
-        body: ListView.builder(
-            itemCount: itemsList.length,
-            itemBuilder: (context, index) {
-              return Card(
-                child: ListTile(
-                  title: Text(itemsList[index]),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Layouts(),
-                            settings:
-                                RouteSettings(arguments: itemsList[index])));
-                  },
-                ),
-              );
-            }));
+      appBar: AppBar(
+        title: const Text("Proyecto Interface"),
+      ),
+      body: const Fotos(),
+    );
+  }
+}
+
+class Textos extends StatefulWidget {
+  const Textos({Key? key}) : super(key: key);
+
+  @override
+  _TextosState createState() => _TextosState();
+}
+
+class _TextosState extends State<Textos> {
+  List<String> itemsList = [
+    "Page 1",
+    "Page 2",
+    "Page 3",
+    "Page 4",
+    "Page 5",
+    "Incremento",
+    "Segundo"
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: itemsList.length,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text(itemsList[index]),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Layouts(),
+                        settings: RouteSettings(arguments: itemsList[index])));
+              },
+            ),
+          );
+        });
+  }
+}
+
+class Fotos extends StatelessWidget {
+  const Fotos({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: 100,
+        itemBuilder: (BuildContext contex, int index) {
+          return Image.network(
+            "https://picsum.photos/id/$index/400/200",
+            height: 200,
+          );
+        });
   }
 }
