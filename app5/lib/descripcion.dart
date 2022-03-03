@@ -1,3 +1,4 @@
+import 'package:app5/review.dart';
 import 'package:flutter/material.dart';
 
 class Descripcion extends StatefulWidget {
@@ -12,38 +13,75 @@ class _DescripcionState extends State<Descripcion> {
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
-        Row(
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.only(
+                      top: 320.0, left: 20.0, right: 40.0),
+                  child: const Text(
+                    "Duwili Ella",
+                    style:
+                        TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                estrella,
+                estrella,
+                estrella,
+                estrella,
+                estrella2,
+              ],
+            ),
             Container(
-              margin:
-                  const EdgeInsets.only(top: 320.0, left: 20.0, right: 40.0),
-              child: const Text(
-                "Duwili Ella",
-                style: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+                margin:
+                    const EdgeInsets.only(top: 20.0, left: 20.0, right: 40.0),
+                child: Text(
+                  miTexto,
+                  style: const TextStyle(fontSize: 16.0, color: Colors.black45),
+                  textAlign: TextAlign.justify,
+                )),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: InkWell(
+                onTap: () {
+                  // ignore: deprecated_member_use
+                  Scaffold.of(context).showSnackBar(
+                      const SnackBar(content: Text("Hola pulsaste el Botón")));
+                },
+                // ignore: sized_box_for_whitespace
+                child: Container(
+                  height: 50.0,
+                  width: 180.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30.0),
+                    color: Colors.blueAccent,
+                  ),
+                  child: const Center(
+                      child: Text(
+                    "Navigator",
+                    style: TextStyle(color: Colors.white),
+                  )),
+                ),
               ),
             ),
-            estrella,
-            estrella,
-            estrella,
-            estrella,
-            estrella2,
+            Container(
+              margin: const EdgeInsets.only(left: 20.0),
+              child: const Text(
+                "All Reviews",
+                textAlign: TextAlign.left,
+                style: TextStyle(
+                    fontWeight: FontWeight.bold, color: Colors.black87),
+              ),
+            ),
+            const Review(),
+            const Review(),
+            const Review(),
+            const Review(),
           ],
-        ),
-        Container(
-            margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 40.0),
-            child: Text(
-              miTexto,
-              style: const TextStyle(fontSize: 16.0, color: Colors.black45),
-              textAlign: TextAlign.justify,
-            )),
-        Container(
-          margin: const EdgeInsets.only(top: 20.0, left: 20.0),
-          child: const ElevatedButton(
-            onPressed: null,
-            child: Text("Navigate B"),
-          ),
         )
       ],
     );
