@@ -1,5 +1,5 @@
-import 'package:app5/descripcion.dart';
-import 'package:app5/review.dart';
+import 'package:app5/cardimg.dart';
+import 'package:app5/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: const Scaffold(
-          body: Descripcion(),
+          body: Home(),
+          //body: CardImg(),
         ));
   }
 }
