@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Review extends StatelessWidget {
-  const Review({Key? key}) : super(key: key);
+  //const Review({Key? key}) : super(key: key);
+  String pimagen = "assets/img/foto1.jpg";
+  String pnombre = "Dulce";
+  String preview = "3 reviews 5 photos";
+  String pcomentario = "Fue una gran Experiencia";
+  Review(this.pimagen, this.pnombre, this.preview, this.pcomentario);
 
   get children => null;
 
@@ -9,29 +14,29 @@ class Review extends StatelessWidget {
   Widget build(BuildContext context) {
     final nombre = Container(
       margin: const EdgeInsets.only(left: 20.0),
-      child: const Text(
-        "Dulce",
+      child: Text(
+        pnombre,
         textAlign: TextAlign.left,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 13.0, fontWeight: FontWeight.bold, color: Colors.black87),
       ),
     );
 
     final detalle = Container(
       margin: const EdgeInsets.only(left: 20.0, top: 5.0),
-      child: const Text(
-        "1 review 5 photos",
+      child: Text(
+        preview,
         textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 10.0, color: Colors.black45),
+        style: const TextStyle(fontSize: 10.0, color: Colors.black45),
       ),
     );
 
     final comentario = Container(
       margin: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5.0),
-      child: const Text(
-        "Me Gusto mucho la experiencia.",
+      child: Text(
+        pcomentario,
         textAlign: TextAlign.left,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 12.0, fontWeight: FontWeight.bold, color: Colors.black87),
       ),
     );
@@ -66,12 +71,12 @@ class Review extends StatelessWidget {
           margin: const EdgeInsets.only(top: 20, left: 20.0),
           width: 60.0,
           height: 60.0,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
                   fit: BoxFit.cover,
                   alignment: Alignment.topCenter,
-                  image: AssetImage("assets/img/foto1.jpg"))),
+                  image: AssetImage(pimagen))),
         ),
         grupo
       ],

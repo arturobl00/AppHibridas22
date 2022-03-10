@@ -9,7 +9,7 @@ class Fondo extends StatelessWidget {
       height: 250.0,
       decoration: const BoxDecoration(color: Colors.blueAccent),
       child: const Text(
-        "Popular",
+        "Mi App",
         style: TextStyle(
             color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold),
       ),
