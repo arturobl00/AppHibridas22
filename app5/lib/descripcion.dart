@@ -87,6 +87,8 @@ class _DescripcionState extends State<Descripcion> {
                 "Tienes que vivirlo"),
             Review("assets/img/img4.jpg", "Carmen", "10 reviews 8 photos",
                 "Excelente!"),
+            Review("assets/img/red.jpg", "RedHot", "10 reviews 2 photos",
+                "Creo que es lo mejor")
           ],
         )
       ],

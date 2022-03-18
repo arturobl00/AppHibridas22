@@ -1,3 +1,4 @@
+import 'package:app5/fblike.dart';
 import 'package:flutter/material.dart';
 
 class CardImage extends StatelessWidget {
@@ -12,12 +13,14 @@ class CardImage extends StatelessWidget {
       width: 180.0,
       margin: const EdgeInsets.only(top: 100.0, left: 20.0),
       decoration: BoxDecoration(
-          image: DecorationImage(fit: BoxFit.cover, image: AssetImage(pathImage)),
+          image:
+              DecorationImage(fit: BoxFit.cover, image: AssetImage(pathImage)),
           borderRadius: const BorderRadius.all(Radius.circular(30.0))),
     );
 
-    return Container(
-      child: card,
+    return Stack(
+      alignment: const Alignment(0.9, 1.1),
+      children: [card, const FbLike()],
     );
   }
 }

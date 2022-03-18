@@ -56,7 +56,6 @@ class Review extends StatelessWidget {
         estrella,
         estrella,
         estrella,
-        estrella,
       ],
     );
 

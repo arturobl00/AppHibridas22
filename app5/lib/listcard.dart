@@ -2,7 +2,7 @@ import 'package:app5/cardimg.dart';
 import 'package:flutter/material.dart';
 
 class ListCard extends StatelessWidget {
-  const ListCard({ Key? key }) : super(key: key);
+  const ListCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +18,8 @@ class ListCard extends StatelessWidget {
           CardImage("assets/img/img4.jpg"),
           CardImage("assets/img/img5.jpg"),
           CardImage("assets/img/img6.jpg"),
+          CardImage("assets/img/original.png"),
+          CardImage("assets/img/red.jpg"),
         ],
       ),
     );
