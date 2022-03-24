@@ -48,6 +48,34 @@ class _HomeState extends State<Home> {
     }
   }
 
+  update() async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("datos")
+          .doc(email.text)
+          .update({"name": name.text});
+      // ignore: avoid_print
+      print("Dato Actualizado");
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+  }
+
+  delete() async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("datos")
+          .doc(email.text)
+          .delete();
+      // ignore: avoid_print
+      print("Dato Eliminado");
+    } catch (e) {
+      // ignore: avoid_print
+      print(e);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,12 +119,20 @@ class _HomeState extends State<Home> {
                           TextButton.styleFrom(backgroundColor: Colors.green),
                       child: const Text("Create")),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        update();
+                        name.clear();
+                        email.clear();
+                      },
                       style:
                           TextButton.styleFrom(backgroundColor: Colors.yellow),
                       child: const Text("Update")),
                   ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        delete();
+                        name.clear();
+                        email.clear();
+                      },
                       style: TextButton.styleFrom(backgroundColor: Colors.red),
                       child: const Text("Delete")),
                 ],
