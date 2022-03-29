@@ -136,7 +136,35 @@ class _HomeState extends State<Home> {
                       style: TextButton.styleFrom(backgroundColor: Colors.red),
                       child: const Text("Delete")),
                 ],
-              )
+              ),
+              SizedBox(
+                  height: 300,
+                  width: double.infinity,
+                  child: SingleChildScrollView(
+                    physics: const ScrollPhysics(),
+                    child: StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection("datos")
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasData) {
+                            return ListView.builder(
+                                shrinkWrap: true,
+                                physics: const ScrollPhysics(),
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder: (context, i) {
+                                  QueryDocumentSnapshot x =
+                                      snapshot.data!.docs[i];
+                                  return ListTile(
+                                    title: Text(x['name']),
+                                    subtitle: Text(x['email']),
+                                  );
+                                });
+                          } else {
+                            return const Center(child: CircularProgressIndicator());
+                          }
+                        }),
+                  )),
             ],
           ),
         ));
