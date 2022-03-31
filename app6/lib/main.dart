@@ -1,3 +1,4 @@
+import 'package:app6/consulta.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -82,6 +83,7 @@ class _HomeState extends State<Home> {
         appBar: AppBar(
           title: const Text("Crud Flutter Firebase"),
         ),
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.all(22.0),
           child: Column(
@@ -137,34 +139,7 @@ class _HomeState extends State<Home> {
                       child: const Text("Delete")),
                 ],
               ),
-              SizedBox(
-                  height: 300,
-                  width: double.infinity,
-                  child: SingleChildScrollView(
-                    physics: const ScrollPhysics(),
-                    child: StreamBuilder<QuerySnapshot>(
-                        stream: FirebaseFirestore.instance
-                            .collection("datos")
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            return ListView.builder(
-                                shrinkWrap: true,
-                                physics: const ScrollPhysics(),
-                                itemCount: snapshot.data!.docs.length,
-                                itemBuilder: (context, i) {
-                                  QueryDocumentSnapshot x =
-                                      snapshot.data!.docs[i];
-                                  return ListTile(
-                                    title: Text(x['name']),
-                                    subtitle: Text(x['email']),
-                                  );
-                                });
-                          } else {
-                            return const Center(child: CircularProgressIndicator());
-                          }
-                        }),
-                  )),
+              const Consulta(),
             ],
           ),
         ));
